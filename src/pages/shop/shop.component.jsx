@@ -19,7 +19,6 @@ render() {
 return(
 <div className = 'shop-page'>
 {
- 
  collections.map( 
      ({id , ...otherCollectioProps}) => (
    <CollectionPreview key = {id} {...otherCollectioProps} />
