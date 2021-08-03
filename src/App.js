@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Switch, Route } from 'react-router-dom';
+import {Switch, Route, Redirect } from 'react-router-dom';
 import { auth ,createUserProfileDocument } from './firebase/firebase.utils';
 import './App.css';
 import ShopPage from './pages/shop/shop.component';
@@ -49,17 +49,25 @@ componentWillUnmount(){
  <Route exact path= '/' component= {HomePage} />
  
  <Route path= '/shop' component= {ShopPage} />
- <Route path= '/signin' component = {SigninAndSignupPage}/>
+ <Route exact path= '/signin' render = {() => this.props.currentUser? 
+ <Redirect to= '/' /> : 
+ <SigninAndSignupPage/> }/>
      </Switch>
          
     </div>
   );
 }
 }
+const mapStateToprop = ({user}) => ({
+
+  currentUser:user.currentUser
+
+})
 
 const mapDispatchToProps = dispatch => ({
-  
+
 setCurrentUser: (user) => dispatch(setCurrentUser(user))
 })
 
-export default connect(null, mapDispatchToProps) (App);
+export default connect(mapStateToprop, mapDispatchToProps) (App);
+ 
