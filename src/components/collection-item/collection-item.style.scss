@@ -1,11 +1,11 @@
 .collection-item {
-  width: 22%;
+  width: 22vw;
   display: flex;
   flex-direction: column;
   height: 350px;
   align-items: center;
   position: relative;
-
+  margin-right: 20px;
   .custom-button {
     width: 80%;
      opacity: 0.7;
