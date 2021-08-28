@@ -3,8 +3,10 @@
     import "./collection.styles.scss";
     import { selectCollection } from '../../redux/shop/shop.reselect';
     import { connect } from 'react-redux';
+    
     const CollectionPage = ({collection}) => {
-    const {title, items} = collection;
+    console.log(collection)
+      const {title, items} = collection;
 
 
        return (
